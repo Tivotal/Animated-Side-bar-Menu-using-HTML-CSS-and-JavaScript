@@ -1,0 +1,152 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #2f363e;
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: #2f363e;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav li {
+  position: relative;
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.nav li::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  left: 20px;
+  top: calc(50% - 2.5px);
+  transition: 0.5s;
+}
+
+.nav li.active::before {
+  background: red;
+  box-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 50px red;
+}
+
+.nav li a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav li a .icon {
+  position: absolute;
+  font-size: 1.75em;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+}
+
+.nav li:hover a .icon {
+  color: red;
+}
+
+.nav li.active a .icon {
+  transform: translateX(45px);
+  background: red;
+  color: #fff;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+  transition-delay: 0s;
+}
+
+.nav li a .icon::before {
+  position: absolute;
+  content: "";
+  inset: 10px;
+  background: #2f363e;
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5),
+    inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.nav li.active a .icon::before {
+  transform: scale(1);
+}
+
+.nav li a .tooltip {
+  position: absolute;
+  left: 70px;
+  font-size: 1.25em;
+  background: red;
+  color: #fff;
+  padding: 4px 15px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.nav li:hover a .tooltip {
+  opacity: 1;
+  visibility: visible;
+  left: 100px;
+}
+
+.nav li.active:hover a .tooltip {
+  opacity: 1;
+  visibility: visible;
+  left: 140px;
+}
+
+.nav li a .tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: red;
+  top: 50%;
+  left: -4px;
+  transform: translateY(-50%) rotate(45deg);
+}
